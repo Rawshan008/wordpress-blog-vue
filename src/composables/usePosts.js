@@ -5,14 +5,25 @@ export function usePosts() {
   const loading = ref(false);
   const error = ref(null);
 
-  const fetchPosts = async (perPage = -1) => {
+  const fetchPosts = async (postId = null, perPage = null) => {
     loading.value = true;
     error.value = null;
 
     const authToken = btoa(`root:ZG3HOEx56JTDCVdjv5vT3MPg`);
 
+    let url = `https://wpapi.test/wp-json/mca/v1/posts`;
+
+    if (perPage !== null && !isNaN(perPage)) {
+      url += `?perPage=${perPage}`;
+    }
+
+    if (postId !== null && !isNaN(postId)) {
+      url += (perPage !== null ? `&` : `?`) + `postId=${postId}`;
+    }
+
+
     try {
-      const response = await fetch(`https://wpapi.test/wp-json/mca/v1/posts?perPage=${perPage}`, {
+      const response = await fetch(url, {
         headers: {
           'Authorization': `Basic ${authToken}`,
           'Content-Type': 'application/json',
@@ -39,4 +50,4 @@ export function usePosts() {
     error,
     fetchPosts
   };
-}
+};

@@ -1,12 +1,10 @@
 <script setup>
-import FeatureBlog from './components/FeatureBlog.vue';
-import Hero from './components/Hero.vue';
 import Navbar from './components/Navbar.vue';
-
+import Footer from './components/Footer.vue';
 </script>
 
 <template>
   <Navbar/>
-  <Hero/>
-  <FeatureBlog/>
+  <RouterView/>
+  <Footer/>
 </template>
