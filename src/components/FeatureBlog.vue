@@ -23,27 +23,27 @@ const props = defineProps({
       <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
         <div v-if="loading">Loading...</div>
         <div v-if="error">Something Creating Problem to fetching data</div>
-            <div v-for="post in posts" :key="post.id">
-              <div class="card bg-base-100 w-96 shadow-xl">
-                <figure class="w-full h-[200px] bg-[#ddd]">
-                  <img
-                  v-if="post.featured_image"
-                    class="h-full w-full object-cover"
-                    :src="post.featured_image"
-                    :alt="post.title" />
-                </figure>
-                <div class="card-body p-4">
-                  <h2 class="text-2xl font-sans font-semibold">{{ post.title }}</h2>
-                  <p class="font-sans">{{ post.excerpt }}</p>
-                  
-                  <div class="card-actions justify-end">
-                    <router-link :to="{ name: 'blogsingle', params: { id: post.id } }" class="py-2 px-5 inline-block bg-black text-white rounded-md mt-4">
-                      Read More
-                    </router-link>
-                  </div>
+          <div v-for="post in posts" :key="post.id">
+            <div class="card bg-base-100 w-96 shadow-xl">
+              <figure class="w-full h-[200px] bg-[#ddd]">
+                <img
+                v-if="post.featured_image"
+                  class="h-full w-full object-cover"
+                  :src="post.featured_image"
+                  :alt="post.title" />
+              </figure>
+              <div class="card-body p-4">
+                <h2 class="text-2xl font-sans font-semibold">{{ post.title }}</h2>
+                <p class="font-sans">{{ post.excerpt }}</p>
+                
+                <div class="card-actions justify-end">
+                  <router-link :to="{ name: 'blogsingle', params: { id: post.id } }" class="py-2 px-5 inline-block bg-black text-white rounded-md mt-4">
+                    Read More
+                  </router-link>
                 </div>
               </div>
             </div>
+          </div>
       </div>
   </div>
 </section>

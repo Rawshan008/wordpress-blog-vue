@@ -1,27 +1,18 @@
 <template>
-  <header>
-    <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
-        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-            <RouterLink to="/" class="flex items-center">
-                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">WP Blog</span>
-            </RouterLink>
-            <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-                <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                    <li>
-                        <RouterLink to="/" class="block py-2 pr-4 pl-3 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white">Home</RouterLink>
-                    </li>
-                    <li>
-                        <RouterLink to="/about" class="block py-2 pr-4 pl-3 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white">About</RouterLink>
-                    </li>
-                    <li>
-                        <RouterLink to="/blog" class="block py-2 pr-4 pl-3 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white">Blog</RouterLink>
-                    </li>
-                    <li>
-                        <RouterLink to="/contact" class="block py-2 pr-4 pl-3 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white">Contact</RouterLink>
-                    </li>
+  <header class="py-2">
+    <div class="container">
+        <div class="flex items-center justify-between">
+            <a href="">
+                <h1 class="text-3xl font-extrabold uppercase text-black-0 hover:text-gloden-0 transition-all duration-300">MY Blog</h1>
+            </a>
+            <nav>
+                <ul class="m-0 p-0 list-none flex space-x-2">
+                    <li><a href="" class="inline-block p-5 font-roboto uppercase text-base font-semibold text-black-0 transition-all duration-300 hover:text-gloden-0">Home</a></li>
+                    <li><a href="" class="inline-block p-5 font-roboto uppercase text-base font-semibold text-black-0 transition-all duration-300 hover:text-gloden-0">Home</a></li>
+                    <li><a href="" class="inline-block p-5 font-roboto uppercase text-base font-semibold text-black-0 transition-all duration-300 hover:text-gloden-0">Home</a></li>
                 </ul>
-            </div>
+            </nav>
         </div>
-    </nav>
+    </div>
   </header>
 </template>

@@ -1,6 +1,6 @@
 <script setup>
 import FeatureBlog from '@/components/FeatureBlog.vue';
-import Hero from '@/components/Hero.vue';
+import FeatureBlogSlider from '@/components/FeatureBlogSlider.vue';
 
 import { usePosts } from '@/composables/usePosts';
 import { onMounted } from 'vue';
@@ -21,6 +21,6 @@ onMounted(() => {
 </script>
 
 <template>
-  <Hero/>
+  <FeatureBlogSlider/>
   <FeatureBlog :posts="posts" :error="error" :loading="loading"/>
 </template>

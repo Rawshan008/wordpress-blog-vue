@@ -5,10 +5,19 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Poppins', 'sans-serif']
-      }
+    container: {
+      center: true,
+      padding: '1rem',
+    },
+    colors: {
+      'charcoal': ['#334155'],
+      'black': ['#191919'],
+      'white': ['#ffffff'],
+      'gloden': ['#fee198'],
+    },
+    fontFamily: {
+      'poppins': ['Poppins', 'sans-serif'],
+      'roboto': ['Roboto', 'sans-serif']
     },
   },
   plugins: [],
