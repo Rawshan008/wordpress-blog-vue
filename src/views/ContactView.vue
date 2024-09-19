@@ -1,3 +1,9 @@
+<script setup>
+import { ref } from 'vue';
+import PageTitle from '@/components/Base/PageTitle.vue';
+
+const title = ref('Contact Us');
+</script>
 <template>
-  <h1>Contact Page</h1>
+  <PageTitle :title="title"/>
 </template>

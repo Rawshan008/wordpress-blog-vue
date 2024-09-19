@@ -1,5 +1,6 @@
 <script setup>
 import { register } from 'swiper/element/bundle';
+import Button from './Base/Button.vue';
 register();
 </script>
 
@@ -18,7 +19,7 @@ register();
           <p class="text-base text-black-0 text-center mb-3 py-1 px-3 bg-gloden-0 inline-block rounded-md">Lorem ipsum</p>
           <h1 class="text-5xl text-center text-white-0 font-roboto font-bold transition-all duration-300 mb-4 hover:text-gloden-0"><a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, sint.</a></h1>
           <p class="text-base text-white-0 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad debitis quo voluptatibus quisquam mollitia nostrum itaque, tempore facere excepturi quas ipsa ea, eum ipsam enim dolorum! Accusantium vel odit rem.</p>
-          <a href="" class="font-poppins font-medium inline-block py-3 px-5 rounded-sm bg-black-0 text-white-0 mt-10 transition-all duration-300 hover:bg-gloden-0 hover:text-black-0">Read More</a>
+          <Button/>
         </div>
       </div>
     </div>
@@ -30,7 +31,7 @@ register();
           <p class="text-base text-black-0 text-center mb-3 py-1 px-3 bg-gloden-0 inline-block rounded-md">Lorem ipsum</p>
           <h1 class="text-5xl text-center text-white-0 font-roboto font-bold transition-all duration-300 mb-4 hover:text-gloden-0"><a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, sint.</a></h1>
           <p class="text-base text-white-0 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad debitis quo voluptatibus quisquam mollitia nostrum itaque, tempore facere excepturi quas ipsa ea, eum ipsam enim dolorum! Accusantium vel odit rem.</p>
-          <a href="" class="font-poppins font-medium inline-block py-3 px-5 rounded-sm bg-black-0 text-white-0 mt-10 transition-all duration-300 hover:bg-gloden-0 hover:text-black-0">Read More</a>
+          <Button/>
         </div>
       </div>
     </div>
@@ -42,7 +43,7 @@ register();
           <p class="text-base text-black-0 text-center mb-3 py-1 px-3 bg-gloden-0 inline-block rounded-md">Lorem ipsum</p>
           <h1 class="text-5xl text-center text-white-0 font-roboto font-bold transition-all duration-300 mb-4 hover:text-gloden-0"><a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, sint.</a></h1>
           <p class="text-base text-white-0 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad debitis quo voluptatibus quisquam mollitia nostrum itaque, tempore facere excepturi quas ipsa ea, eum ipsam enim dolorum! Accusantium vel odit rem.</p>
-          <a href="" class="font-poppins font-medium inline-block py-3 px-5 rounded-sm bg-black-0 text-white-0 mt-10 transition-all duration-300 hover:bg-gloden-0 hover:text-black-0">Read More</a>
+          <Button/>
         </div>
       </div>
     </div>
