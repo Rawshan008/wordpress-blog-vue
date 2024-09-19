@@ -1,4 +1,5 @@
 <script setup>
+import EditorChoiceBlog from '@/components/EditorChoiceBlog .vue';
 import FeatureBlog from '@/components/FeatureBlog.vue';
 import FeatureBlogSlider from '@/components/FeatureBlogSlider.vue';
 
@@ -22,5 +23,6 @@ onMounted(() => {
 
 <template>
   <FeatureBlogSlider/>
-  <FeatureBlog :posts="posts" :error="error" :loading="loading"/>
+  <!-- <FeatureBlog :posts="posts" :error="error" :loading="loading"/> -->
+   <EditorChoiceBlog/>
 </template>
