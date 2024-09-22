@@ -7,42 +7,47 @@ import FeatureBlogSlider from '@/components/FeatureBlogSlider.vue';
 import Button from '@/components/Base/Button.vue';
 
 import { usePosts } from '@/composables/usePosts';
-import { onMounted } from 'vue';
+import { onBeforeMount, onMounted } from 'vue';
 import AboutSidebar from '@/components/Base/AboutSidebar.vue';
 import SidebarFeatureBlog from '@/components/Blogs/SidebarFeatureBlog.vue';
+import { useHomePosts } from '@/composables/useHomePosts';
 
 const props = defineProps({
   perPage: {
     type: Number,
     default: -1,
   }
-})
+});
 
-const { posts, error, loading, fetchPosts } = usePosts()
+const homeSliderUrl = `${import.meta.env.VITE_API_BASE_URL}/homepage?sliders`;
+const editorChoiceUrl = `${import.meta.env.VITE_API_BASE_URL}/homepage?editorChoice`;
+
+const {posts:homeSliders, error:homeSliderError, fetchHomePosts:homeSliderFetch} = useHomePosts(homeSliderUrl);
+const { posts: editorChoice, error: editorChoiceError, fetchHomePosts: editorChoiceFetch } = useHomePosts(editorChoiceUrl);
+const { posts,loading,error,fetchPosts } = usePosts();
 
 onMounted(() => {
-  fetchPosts(null, -1);
+  homeSliderFetch();
+  editorChoiceFetch();
+  fetchPosts(4)
 });
+
 
 </script>
 
 <template>
-  <FeatureBlogSlider/>
-  <!-- <FeatureBlog :posts="posts" :error="error" :loading="loading"/> -->
-   <EditorChoiceBlog/>
+  <FeatureBlogSlider :sliders="homeSliders" :sliderError="homeSliderError"/>
+   <EditorChoiceBlog :editorChoice="editorChoice" :editorError="editorChoiceError"/>
 
    <div class="pt-10 pb-20">
     <div class="container">
-    <SectionTitle/>
+    <SectionTitle title="Out Latest Blog" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, natus."/>
     <div class="grid grid-col-1 md:grid-cols-3 gap-8">
       <div class="col-span-2">
         <div class="grid grid-col-1 lg:grid-cols-2 gap-8">
-          <LatestBlogCard/>
-          <LatestBlogCard/>
-          <LatestBlogCard/>
-          <LatestBlogCard/>
+          <LatestBlogCard v-for="(post, index) in posts" :postContent="post" :key="index"/>
         </div>
-        <Button/>
+        <Button buttonLink="/blog" buttonText="Read More"/>
       </div>
       <div class="col-span-1 gap-8">
         <AboutSidebar/>

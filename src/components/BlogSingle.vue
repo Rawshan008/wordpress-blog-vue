@@ -1,6 +1,7 @@
 <script setup>
-
-const props = defineProps({
+import AboutSidebar from './Base/AboutSidebar.vue';
+import SidebarFeatureBlog from './Blogs/SidebarFeatureBlog.vue';
+const {post, error, loading} = defineProps({
   post: {
     type: Array,
     require: true
@@ -13,21 +14,36 @@ const props = defineProps({
   }
 })
 
+
 </script>
 <template>
-  <div class="mx-auto max-w-screen-xl">
-    <div class="w-full">
-      <div v-if="loading">Loading...</div>
-    <div v-else-if="error">Error: {{ error }}</div>
-    <div v-else>
-      <div v-if="post">
-        <h1 class="text-3xl font-sans font-bold mb-3">{{ post.title }}</h1>
+<div class="py-20">
+  <div class="container">
+    <p v-if="loading">Loading</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="col-span-2">
+        <h3>{{ post.title }}</h3>
         <div v-html="post.content"></div>
       </div>
-      <div v-else>
-        <p>Post not found.</p>
+      <div class="col-span-1">
+        <AboutSidebar/>
+        <div class="h-8"></div>
+        <SidebarFeatureBlog/>
       </div>
-    </div>
-    </div>
+    </div>  
   </div>
+</div> 
 </template>
+
+<style scoped>
+  h3 {
+    @apply font-semibold text-2xl mb-5 font-poppins;
+  }
+  p {
+    @apply font-poppins mb-5;
+  }
+
+  img {
+    @apply max-w-full h-auto mb-5 ;
+  }
+</style>

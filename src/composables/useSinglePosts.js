@@ -1,11 +1,11 @@
 import { ref } from 'vue';
 
-export function usePosts() {
-  const posts = ref([]);
+export function useSinglePosts() {
+  const post = ref([]);
   const loading = ref(false);
   const error = ref(null);
 
-  const fetchPosts = async (perPage = null) => {
+  const fetchSinglePosts = async (postId) => {
     loading.value = true;
     error.value = null;
 
@@ -13,8 +13,8 @@ export function usePosts() {
 
     let url = `${import.meta.env.VITE_API_BASE_URL}/posts`;
 
-    if (perPage !== null && !isNaN(perPage)) {
-      url += `?perPage=${perPage}`;
+    if (postId !== null && !isNaN(postId)) {
+      url += `?postId=${postId}`;
     }
 
     try {
@@ -30,7 +30,7 @@ export function usePosts() {
       }
 
       const data = await response.json();
-      posts.value = data;
+      post.value = data;
     } catch (err) {
       error.value = 'Failed to fetch posts';
       console.error(err);
@@ -40,9 +40,9 @@ export function usePosts() {
   };
 
   return {
-    posts,
+    post,
     loading,
     error,
-    fetchPosts
+    fetchSinglePosts
   };
 };
