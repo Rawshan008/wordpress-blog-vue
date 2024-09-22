@@ -10,7 +10,6 @@ const { title, image } = defineProps({
   }
 })
 
-console.log(image);
 </script>
 
 <template>

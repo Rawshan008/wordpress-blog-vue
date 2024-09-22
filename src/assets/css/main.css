@@ -10,3 +10,19 @@ h1 {
 p {
   font-family: "Poppins", system-ui;
 }
+
+.content-wrapper h3 {
+   @apply font-roboto font-semibold uppercase text-2xl mb-3; 
+}
+
+.content-wrapper h4 {
+  @apply font-semibold text-lg tracking-wider max-w-xl mx-auto;
+}
+
+.content-wrapper hr {
+  @apply my-8 text-[#ddd];
+}
+
+.content-wrapper p {
+  @apply mb-4;
+}

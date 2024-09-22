@@ -35,8 +35,6 @@ onMounted(() => {
   fetchFeaturePosts(4)
 });
 
-console.log(fposts)
-
 </script>
 
 <template>
