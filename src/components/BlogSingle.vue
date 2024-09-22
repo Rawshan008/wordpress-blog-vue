@@ -1,7 +1,9 @@
 <script setup>
+import { useFeaturePosts } from '@/composables/useFeaturePosts';
 import AboutSidebar from './Base/AboutSidebar.vue';
 import SidebarFeatureBlog from './Blogs/SidebarFeatureBlog.vue';
-const {post, error, loading} = defineProps({
+import { onMounted } from 'vue';
+const { post, error, loading } = defineProps({
   post: {
     type: Array,
     require: true
@@ -12,7 +14,13 @@ const {post, error, loading} = defineProps({
   loading: {
     type: Boolean
   }
-})
+});
+
+const { fposts, floading, ferror, fetchFeaturePosts } = useFeaturePosts();
+
+onMounted(async () => {
+  fetchFeaturePosts(4);
+});
 
 
 </script>
@@ -28,7 +36,6 @@ const {post, error, loading} = defineProps({
       <div class="col-span-1">
         <AboutSidebar/>
         <div class="h-8"></div>
-        <SidebarFeatureBlog/>
       </div>
     </div>  
   </div>

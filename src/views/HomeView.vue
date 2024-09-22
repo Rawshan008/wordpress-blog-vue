@@ -11,6 +11,7 @@ import { onBeforeMount, onMounted } from 'vue';
 import AboutSidebar from '@/components/Base/AboutSidebar.vue';
 import SidebarFeatureBlog from '@/components/Blogs/SidebarFeatureBlog.vue';
 import { useHomePosts } from '@/composables/useHomePosts';
+import { useFeaturePosts } from '@/composables/useFeaturePosts';
 
 const props = defineProps({
   perPage: {
@@ -24,20 +25,23 @@ const editorChoiceUrl = `${import.meta.env.VITE_API_BASE_URL}/homepage?editorCho
 
 const {posts:homeSliders, error:homeSliderError, fetchHomePosts:homeSliderFetch} = useHomePosts(homeSliderUrl);
 const { posts: editorChoice, error: editorChoiceError, fetchHomePosts: editorChoiceFetch } = useHomePosts(editorChoiceUrl);
-const { posts,loading,error,fetchPosts } = usePosts();
+const { posts, loading, error, fetchPosts } = usePosts();
+const { fposts, floading, ferror, fetchFeaturePosts } = useFeaturePosts();
 
 onMounted(() => {
   homeSliderFetch();
   editorChoiceFetch();
-  fetchPosts(4)
+  fetchPosts(4);
+  fetchFeaturePosts(4)
 });
 
+console.log(fposts)
 
 </script>
 
 <template>
   <FeatureBlogSlider :sliders="homeSliders" :sliderError="homeSliderError"/>
-   <EditorChoiceBlog :editorChoice="editorChoice" :editorError="editorChoiceError"/>
+  <EditorChoiceBlog :editorChoice="editorChoice" :editorError="editorChoiceError"/>
 
    <div class="pt-10 pb-20">
     <div class="container">
@@ -52,7 +56,7 @@ onMounted(() => {
       <div class="col-span-1 gap-8">
         <AboutSidebar/>
         <div class="h-8"></div>
-        <SidebarFeatureBlog/>
+        <SidebarFeatureBlog :fposts="fposts" :floading="floading" :ferror="ferror"/>
       </div>
     </div>
    </div>
