@@ -1,16 +1,20 @@
 <script setup>
 const { postContent } = defineProps({
   postContent: {
-    type: Array,
+    type: [Array, Object],
     required: true,
   }
-})
+});
+
 </script>
 
 <template>
   <div class="bg-white-0">
     <div class="relative mb-5 h-80 overflow-hidden rounded-t">
       <img class="h-full w-full object-top object-cover transition-all duration-300 hover:scale-110" :src="postContent.featured_image" :alt="postContent.title">
+        <div v-if="postContent.categories" class="flex gap-1 items-center justify-center absolute top-1 right-1">
+          <p v-for="(cat, index) in postContent.categories" class="text-base text-black-0 text-center mb-3 py-1 px-3 bg-gloden-0 inline-block rounded-md" :key="index">{{ cat.name }}</p>
+        </div>
     </div>
     <div>
       <div class="flex items-center justify-between gap-4">
